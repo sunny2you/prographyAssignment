@@ -6,11 +6,9 @@ import 'package:prography/models/photomodel.dart';
 class ApiService {
   static const String homeUrl =
       "https://api.unsplash.com/photos/?client_id=fpWQaUGwgtj-hajRVh_YtGoHrjFKaicc4IXcHOzkvkw";
-  // "https://api.unsplash.com/photos/random/?client_id=fpWQaUGwgtj-hajRVh_YtGoHrjFKaicc4IXcHOzkvkw";
 
   static const String randomUrl =
       "https://api.unsplash.com/photos/random/?client_id=fpWQaUGwgtj-hajRVh_YtGoHrjFKaicc4IXcHOzkvkw";
-  // "https://api.unsplash.com/photos/?client_id=fpWQaUGwgtj-hajRVh_YtGoHrjFKaicc4IXcHOzkvkw";
 
   static Future<List<PhotoModel>> getPhotos(
       int pageNumber, List<PhotoModel> instances) async {
@@ -23,7 +21,6 @@ class ApiService {
 
       for (var photo in photos) {
         final instance = PhotoModel.fromJson(photo);
-
         photoInstances.add(instance);
       }
       return photoInstances;
@@ -48,7 +45,6 @@ class ApiService {
     final prefs = await SharedPreferences.getInstance();
     final likedPhotoIds = prefs.getStringList('likedPhotos');
     if (likedPhotoIds == null) {
-      print('nolikedApi');
       return likedPhotos;
     } else {
       for (String photoId in likedPhotoIds) {

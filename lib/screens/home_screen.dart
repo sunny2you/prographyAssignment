@@ -92,7 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                           description: likedPhoto.description,
                                           onLikedStatusChanged: (bool isLiked) {
                                             if (mounted) {
-                                              // Update the HomeScreen when the liked status changes
                                               setState(() {});
                                             }
                                           },
@@ -149,7 +148,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         description: photo.description,
                         onLikedStatusChanged: (bool isLiked) {
                           if (mounted) {
-                            // Update the HomeScreen when the liked status changes
                             setState(() {});
                           }
                         },
@@ -184,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   context,
                   PageRouteBuilder(
                     pageBuilder: ((context, animation, secondaryAnimation) =>
-                        const MyHomePage()),
+                        const SwipeScreen()),
                   ),
                 );
               },

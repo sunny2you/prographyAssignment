@@ -3,13 +3,12 @@ import 'package:prography/models/photomodel.dart';
 import 'package:prography/screens/detail_screen.dart';
 import 'package:prography/screens/home_screen.dart';
 import 'package:prography/services/api_service.dart';
-
 import 'package:swipe_cards/swipe_cards.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/cupertino.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, this.title}) : super(key: key);
+class SwipeScreen extends StatefulWidget {
+  const SwipeScreen({Key? key, this.title}) : super(key: key);
 
   final String? title;
 
@@ -17,7 +16,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<SwipeScreen> {
   final List<SwipeItem> _swipeItems = <SwipeItem>[];
   MatchEngine? _matchEngine;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
@@ -137,9 +136,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 duration: Duration(milliseconds: 500),
               ));
             },
-            // itemChanged: (SwipeItem item, int index) {
-            //   print("item: ${item.content.text}, index: $index");
-            // },
             upSwipeAllowed: true,
             fillSpace: true,
           ),
@@ -176,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const MyHomePage(),
+                    builder: (context) => const SwipeScreen(),
                   ),
                 );
               },

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:prography/screens/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
-import 'package:prography/controllers/controller.dart';
 
 class DetailScreen extends StatefulWidget {
   final String id, username, description;
@@ -47,7 +46,6 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 
   toggleLike() async {
-    controller.triggerEventX;
     final likedPhotos = prefs.getStringList('likedPhotos');
     if (likedPhotos != null) {
       if (widget.isLiked) {
@@ -70,7 +68,6 @@ class _DetailScreenState extends State<DetailScreen> {
       backgroundColor: Colors.transparent.withOpacity(0.8),
       body: Container(
         color: Colors.transparent,
-        // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
           child: Container(
@@ -122,7 +119,6 @@ class _DetailScreenState extends State<DetailScreen> {
                         InkWell(
                           onTap: () {
                             toggleLike();
-                            controller.triggerEventX;
                           },
                           child: widget.isLiked
                               ? Image.asset(
